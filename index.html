@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Babyyy's Garden</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="gate">
+  <h2>Welcome Babyyyy!!! 🌷</h2>
+
+  <input type="text" id="dayInput" placeholder="What day is it today?" />
+  <input type="password" id="passwordInput" placeholder="Password" />
+
+  <button onclick="enterGarden()">Enter</button>
+
+  <p id="error"></p>
+</div>
+
+  <script>
+  function enterGarden() {
+  const day = document.getElementById('dayInput').value.trim();
+  const password = document.getElementById('passwordInput').value.trim();
+  const error = document.getElementById('error');
+  
+// Map day + password to folders
+const routes = {
+  "Day 1-tulips": "day-1",
+  "Day 2-Babyyy": "day-2"
+};
+
+const key = `${day}-${password}`;
+
+if (routes[key]) {
+  const gate = document.getElementById('gate');
+  gate.classList.add('fade-out');
+
+  setTimeout(() => {
+    window.location.href = `./${routes[key]}/`;
+  }, 600);
+} else {
+  error.textContent = "That doesn’t feel right… try again 🌸";
+}
+  }
+
+  </script>
+</body>
+</html>
