@@ -121,7 +121,7 @@ input[type="checkbox"] {
 /* Flower container */
 .flower {
   position: absolute; /* makes it replace the gift */
-  top: 50%;
+  top: 62%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0.9);
   opacity: 0;
@@ -216,4 +216,5 @@ input:checked ~ .flower {
     margin: 16px auto;
     transform: rotate(0);
   }
+
 }
