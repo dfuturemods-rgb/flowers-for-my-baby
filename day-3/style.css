@@ -1,0 +1,220 @@
+/* General body styles */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("bg1.jpg") no-repeat center center fixed;
+  background-size: cover;
+  font-family: Georgia, serif;
+  text-align: center;
+  color: #333;
+}
+/* Startup gate */
+#gate {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  transition: opacity 0.6s ease;
+}
+
+#gate input, #gate button {
+  padding: 10px;
+  width: 220px;
+  font-size: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Fade transition for gate */
+#gate {
+  transition: opacity 0.6s ease;
+}
+
+/* When gate is exiting */
+#gate.fade-out {
+  opacity: 0;
+}
+
+/* Fade-in for main content */
+.wrapper {
+  transition: opacity 0.6s ease;
+}
+
+.wrapper.hidden {
+  display: none;
+  opacity: 0;
+}
+
+.wrapper.show {
+  display: block;
+  opacity: 1;
+}
+/* Wrapper for content */
+.wrapper {
+  max-width: 360px;
+  width: 90%;
+  padding: 24px;
+  position: relative; /* needed for absolute positioning of flower */
+  text-align: center;
+}
+
+/* Heading and paragraph */
+h1 {
+  font-size: 1.3rem;
+  margin-bottom: 120px;
+}
+/* Title before and after opening gift */
+.after-open {
+  display: none;
+}
+
+/* When gift is opened */
+#giftToggle:checked ~ .before-open {
+  display: none;
+}
+
+#giftToggle:checked ~ .after-open {
+  display: block;
+   position: relative;
+  z-index: 3;           /* above flower */
+  margin-bottom: 190px;  /* space before flower */
+}
+
+p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Hide the checkbox */
+input[type="checkbox"] {
+  display: none;
+}
+
+/* Gift image */
+.gift {
+  margin: 24px 0;
+  cursor: pointer;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.gift img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* Gift vanishes when opened */
+#giftToggle:checked ~ .gift {
+  opacity: 0;
+  transform: scale(0.85);
+  pointer-events: none;
+}
+
+/* Flower container */
+.flower {
+  position: absolute; /* makes it replace the gift */
+  top: 62%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  opacity: 0;
+  pointer-events: none;
+  text-align: center;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  z-index: 1;
+}
+
+/* Reveal flower */
+input:checked ~ .flower {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Flower image */
+.flower img {
+  width: 320px;  /* You can increase to 110% if you want it bigger */
+  max-width: 90vw;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+/* Flower heading */
+.flower h2 {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+/* Flower meaning */
+.meaning {
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+/* Flower message */
+.flower p:last-child {
+  margin-bottom: 0;
+}
+
+/* Polaroid photo style */
+.polaroids {
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Base polaroid */
+.polaroid {
+  width: 140px;
+  padding: 8px 8px 18px;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+#giftToggle:checked ~ .flower .polaroid {
+  opacity: 1;
+}
+
+/* Left polaroid */
+.polaroid.left {
+  left: -10px;
+  transform: rotate(-4deg);
+}
+
+/* Right polaroid */
+.polaroid.right {
+  right: -10px;
+  transform: rotate(4deg);
+}
+
+.polaroid img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.polaroid .caption {
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: #555;
+  font-family: "Courier New", monospace;
+}
+@media (max-width: 420px) {
+  .polaroid {
+    position: static;
+    margin: 16px auto;
+    transform: rotate(0);
+  }
+
+}
