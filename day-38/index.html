@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Babyyy's Garden</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <div class="wrapper">
+
+  <!-- Checkbox to toggle gift/flower -->
+  <input type="checkbox" id="giftToggle">
+
+  <!-- Text BEFORE opening gift -->
+  <h1 class="before-open">Tap the gift to see your flower 🌸</h1>
+
+  <!-- Text AFTER opening gift -->
+  <h1 class="after-open">Choosing You Flowers</h1>
+
+  <!-- Gift image -->
+  <label class="gift" for="giftToggle">
+    <img src="./gift.png" alt="Gift">
+  </label>
+
+  <!-- Flower container -->
+  <div class="flower">
+    <img src="./Snowdrop.png" alt="Anemone" class="bloom">
+    <h2>Snowdrop</h2>
+    <p>This flower grows through the cold without asking the weather to change first.</p>
+    <p>I hope we learn to grow like that too — not perfect, not dramatic, just choosing to stay kind to each other where we are.</p>
+	
+	<!-- Polaroid photos -->
+ <div class="polaroids">
+    <div class="polaroid left">
+      <img src="./us1.jpeg" alt="Us">
+      <p class="caption"> Still Choosing you Always</p>
+    </div>
+
+    <div class="polaroid right">
+      <img src="./us2.jpeg" alt="Memory">
+      <p class="caption">In all ways</p>
+    </div>
+</div>
+
+  </div>
+
+
+
+</div>
+
+  <script>
+    // Optional: Add small scale "bloom" effect on flower
+    const checkbox = document.getElementById('giftToggle');
+    const flower = document.querySelector('.flower');
+
+    checkbox.addEventListener('change', () => {
+      if (checkbox.checked) {
+        flower.style.transform = 'translate(-50%, -50%) scale(0.9)';
+        setTimeout(() => {
+          flower.style.transform = 'translate(-50%, -50%) scale(1)';
+        }, 50);
+      }
+    });
+  </script>
+</body>
+</html>
