@@ -5,7 +5,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url("bg1.jpg") no-repeat center center fixed;
+  background: url("bg1.png") no-repeat center center fixed;
   background-size: cover;
   font-family: Georgia, serif;
   text-align: center;
@@ -218,3 +218,4 @@ input:checked ~ .flower {
   }
 
 }
+
