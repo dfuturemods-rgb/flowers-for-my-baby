@@ -4,87 +4,64 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Babyyy's Garden</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <div id="gate">
-  <h2>Welcome Babyyyy!!! 🌷</h2>
+ 
+  <div class="wrapper">
 
-  <input type="text" id="dayInput" placeholder="What day is it today?" />
-  <input type="password" id="passwordInput" placeholder="Password" />
+  <!-- Checkbox to toggle gift/flower -->
+  <input type="checkbox" id="giftToggle">
 
-  <button onclick="enterGarden()">Enter</button>
+  <!-- Text BEFORE opening gift -->
+  <h1 class="before-open">Tap the gift to see your flower 🌸</h1>
 
-  <p id="error"></p>
+  <!-- Text AFTER opening gift -->
+  <h1 class="after-open"> The Day Before, After and Forever</h1>
+
+  <!-- Gift image -->
+  <label class="gift" for="giftToggle">
+    <img src="./gift.png" alt="Gift">
+  </label>
+
+  <!-- Flower container -->
+  <div class="flower">
+    <img src="./Leptosyne.png" alt="Succisa Pratensis" class="bloom">
+    <h2>Leptosyne</h2>
+    <p>No Overthinking, No pressure</p>
+    <p>I'm happy that I get to spend another day with you</p>
+	
+	<!-- Polaroid photos -->
+ <div class="polaroids">
+    <div class="polaroid left">
+      <img src="./us1.jpeg" alt="Us">
+      <p class="caption">For what it is now</p>
+    </div>
+
+    <div class="polaroid right">
+      <img src="./us2.jpeg" alt="Memory">
+      <p class="caption">For what lies ahead</p>
+    </div>
 </div>
 
-  <script>
-  function enterGarden() {
-  const day = document.getElementById('dayInput').value.trim();
-  const password = document.getElementById('passwordInput').value.trim();
-  const error = document.getElementById('error');
-  
-// Map day + password to folders
-const routes = {
-  "Day 1-tulips": "day-1",
-  "Day 2-Babyyy": "day-2",
-  "Day 3-Sunnyyy": "day-3",
-  "Day 4-Hydrasss": "day-4",
-  "Day 5-Daisiesss": "day-5",
-  "Day 6-Poniesss": "day-6",
-  "Day 7-ApiiNuYirrr": "day-7",
-  "Day 8-New Year, Same Love": "day-8",
-  "Day 9-Branchesss": "day-9",
-  "Day 10-Chamosmileee": "day-10",
-  "Day 11-Sweetie Peas": "day-11",
-  "Day 12-For you-vian Lilies": "day-12",
-  "Day 13-Camella Homes": "day-13",
-  "Day 14-Lisianth-US": "day-14",
-  "Day 15-Primieees": "day-15",
-  "Day 16-Cutieees": "day-16",
-  "Day 17-Tinapaaay": "day-17",
-  "Day 18-Marcusss": "day-18",
-  "Day 19-Stockieees": "day-19",
-  "Day 20-Wingardium Scabiosa": "day-20",
-  "Day 21-Not free kaya": "day-21"
-};
+  </div>
 
-const key = `${day}-${password}`;
 
-if (routes[key]) {
-  const gate = document.getElementById('gate');
-  gate.classList.add('fade-out');
 
-  setTimeout(() => {
-    window.location.href = `./${routes[key]}/`;
-  }, 600);
-} else {
-  error.textContent = "That doesn’t feel right… try again 🌸";
-}
-  }
 
+ <script>
+    // Optional: Add small scale "bloom" effect on flower
+    const checkbox = document.getElementById('giftToggle');
+    const flower = document.querySelector('.flower');
+
+    checkbox.addEventListener('change', () => {
+      if (checkbox.checked) {
+        flower.style.transform = 'translate(-50%, -50%) scale(0.9)';
+        setTimeout(() => {
+          flower.style.transform = 'translate(-50%, -50%) scale(1)';
+        }, 50);
+      }
+    });
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
