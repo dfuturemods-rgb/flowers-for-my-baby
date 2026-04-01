@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Babyyy's Garden</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+ 
+  <div class="wrapper">
+
+  <!-- Checkbox to toggle gift/flower -->
+  <input type="checkbox" id="giftToggle">
+
+  <!-- Text BEFORE opening gift -->
+  <h1 class="before-open">Tap the gift to see your flower 🌸</h1>
+
+  <!-- Text AFTER opening gift -->
+  <h1 class="after-open">No April Fools Flowers </h1>
+
+  <!-- Gift image -->
+  <label class="gift" for="giftToggle">
+    <img src="./gift.png" alt="Gift">
+  </label>
+
+  <!-- Flower container -->
+  <div class="flower">
+    <img src="./Armeria.png" alt="Succisa Pratensis" class="bloom">
+    <h2>Armeria</h2>
+    <p>The tide can change as much as it wants</p>
+    <p>But I'm right where I want to be, and that's with you</p>
+	
+	<!-- Polaroid photos -->
+ <div class="polaroids">
+    <div class="polaroid left">
+      <img src="./us1.jpeg" alt="Us">
+      <p class="caption">No matter the season</p>
+    </div>
+
+    <div class="polaroid right">
+      <img src="./us2.jpeg" alt="Memory">
+      <p class="caption">I'll be your constant in my life</p>
+    </div>
+</div>
+
+  </div>
+
+
+
+
+ <script>
+    // Optional: Add small scale "bloom" effect on flower
+    const checkbox = document.getElementById('giftToggle');
+    const flower = document.querySelector('.flower');
+
+    checkbox.addEventListener('change', () => {
+      if (checkbox.checked) {
+        flower.style.transform = 'translate(-50%, -50%) scale(0.9)';
+        setTimeout(() => {
+          flower.style.transform = 'translate(-50%, -50%) scale(1)';
+        }, 50);
+      }
+    });
+  </script>
+</body>
+</html>
